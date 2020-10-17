@@ -33,8 +33,9 @@ router.put("/api/:id", function (req, res) {
         function(result) {
             if (result.changedRows === 0) {
                 return res.status(404).end();
-            }
+            } else {
             res.status(200).end();
+            }
         }
     );
 });
