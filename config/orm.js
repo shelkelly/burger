@@ -36,8 +36,8 @@ function objToSql(ob) {
 
 // Object for all SQL functions
 var orm = {
-    all: function(tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+    all: function(table, cb) {
+        var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
@@ -45,15 +45,14 @@ var orm = {
             cb(result);
         });
     },
-    insert: function(table, cols, vals, cb) {
+    create: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
-
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
         queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
+        queryString += ");";
 
         console.log(queryString);
 

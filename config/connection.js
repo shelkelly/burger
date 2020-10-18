@@ -1,7 +1,7 @@
 // Variables defined for connection use
 var mysql = require("mysql");
 
-var connection = mysql.connection({
+var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
