@@ -6,7 +6,7 @@
   {{#each burgers}}
     {{#unless devoured}}
     <li><strong> {{this.burger_name}} </strong>
-    <button type="button" class="eatburger" id = "eatbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}">Yummyyy!</button></li>
+    <button type="button" class="eatburger" id = "eatbutton" data-id="{{this.id}}" data-newDevoured="{{devoured}}">Yummyyy!</button></li>
     {{/unless}}
   {{/each}}
 </ul>
@@ -16,6 +16,8 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
+    <li><strong> {{this.burger_name}} </strong>
+    <button type="button" class="remakeburger" data-id="{{this.id}}" data-newDevoured="{{devoured}}">Make that burger again!</button></li>
     {{/if}}
   {{/each}}
 </ul>
@@ -26,6 +28,12 @@
   <div class="form-group">
     <label for="bn">Name Your Creation:</label>
     <input type="text" id="bn" name="burger">
+  </div>
+
+    <div class="form-group">
+    <label for="eaten">Have you eaten this burger before?</label><br>
+    <input type="radio" name="sleepy" value="1" checked>MMM. IT'S DELICIOUS.<br>
+    <input type="radio" name="sleepy" value="0">Nope, but I can't wait to try it!
   </div>
 
   <button type="submit" id="submit">Cook that Burger!</button>
